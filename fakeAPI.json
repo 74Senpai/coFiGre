@@ -1,0 +1,59 @@
+{
+    "play_list": [
+       
+        {
+            "name_song": "Hãy Trao Cho Anh",
+            "author": "Sơn Tùng M-TP ft. Snoop Dogg",
+            "img": "https://i.scdn.co/image/ab67616d00001e023403b37254ffacb7732e92da",
+            "audio_src": "./resources/sound/hayTraochoAnh.mp3"
+        },
+        {
+            "name_song": "Chạy Ngay Đi",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00001e027e467e49171f7fc8b8117de3",
+            "audio_src": "./resources/sound/chayNgayDi.mp3"
+        },
+        {
+            "name_song": "Lạc Trôi",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00004851569118cbe628ce2e7802d684",
+            "audio_src": "./resources/sound/lacTroi.mp3"
+        },
+        {
+            "name_song": "Nơi Này Có Anh",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00001e0206a4d1fd269dc47911d37eb3",
+            "audio_src": "./resources/sound/noiNayCoAnh.mp3"
+        },
+       {
+            "name_song": "Em Của Ngày Hôm Qua",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00001e0206a4d1fd269dc47911d37eb3",
+            "audio_src": "./resources/sound/emCuaNgayHomQua.mp3"
+        },
+        {
+            "name_song": "Cơn Mưa Ngang Qua",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00001e0206a4d1fd269dc47911d37eb3",
+            "audio_src": "./resources/sound/conMuaNgangQuamp3.mp3"
+        },
+        {
+            "name_song": "Âm Thầm Bên Em",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00001e0206a4d1fd269dc47911d37eb3",
+            "audio_src": "./resources/sound/amThamBenEm.mp3"
+        },
+        {
+            "name_song": "Chúng Ta Của Hiện Tại",
+            "author": "Sơn Tùng M-TP",
+            "img": "https://i.scdn.co/image/ab67616d00001e0206a4d1fd269dc47911d37eb3",
+            "audio_src": "./resources/sound/chungTaCuaHienTai.mp3"
+        },
+        {
+            "name_song": "Hãy Trao Cho Anh (Remix)",
+            "author": "Sơn Tùng M-TP ft. Snoop Dogg",
+            "img": "https://i.scdn.co/image/ab67616d00001e0206a4d1fd269dc47911d37eb3",
+            "audio_src": "./resources/sound/hayTraochoAnh.mp3"
+        }
+    ]
+}
