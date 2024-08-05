@@ -1,34 +1,38 @@
+"use stric";
 import communicate from "./Core/communicate.js";
 
-let apiData;
+const dataStore={
 
-async function dataAPI(data) {
-    apiData = data;
+};
+
+async function dataAPI(data, type) {
+    if(!dataStore[type]){
+        dataStore[type] = data;
+        communicate.logger('infor',  "Store", `Set data for key ${type} done`);
+        return true;
+    }else{
+        communicate.logger('infor', "Store",  `replace data for key ${type}`);
+        dataStore[type] = data;
+        return true;
+    }
 }
 
 
 const store = {
     async setDataToStore(data, type){
-        switch(type){
-            case "api":
-                await dataAPI(data);
-                communicate.logger('log',"data API", apiData);
-                return true;
-            default: 
-                communicate.logger("err", `Type ${type} not have any config`, 
-                    "By config-->getDataConfig"
-                );
-                return false;
-        }
+        if(!data || !type){
+            communicate.logger('err', "Store",
+                "data or type is undefine"
+            );
+            return false;
+        } 
+        return  await dataAPI(data, type);
     },
 
     sendData(type){
-        switch(type){
-            case "api":
-                return apiData;
-            default:
-                communicate.logger("err", "Please set type of data you want return");
-        }
+        if(dataStore[type]) 
+            return dataStore[type];
+        return `Key ${type} is undefine`;
     }
 }
 

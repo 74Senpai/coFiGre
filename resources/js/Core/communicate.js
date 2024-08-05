@@ -1,10 +1,11 @@
+"use stric";
 import input from "../input.js";
 import output from "../output.js";
 import store from "../store.js";
-import config from "./config.js";
+import action from "./action.js";
+
 
 const $ = document.querySelector.bind(document);
-
 
 const communicate = {
     
@@ -25,6 +26,12 @@ const communicate = {
                 case "STORE":
                     result = store;
                     break;
+                case "CONFIG":
+                    result = config;
+                    break;
+                case "ACTION":
+                    result = action;
+                    break;
                 default:
                     console.group("Core");
                     console.error("Accusative is not define", accusative);
@@ -41,41 +48,28 @@ const communicate = {
         render();
         
     },
-    save(){
-        
-    },
-    request_data(dataReques){
-        switch(dataReques){
-            case "api":
+    request_data(accusative, type_dataReques){
+        switch(accusative){
+            case "store":
                 // console.log(getDataPlayList);
-                return store.sendData(dataReques);
-            case "songs":
-                break;
-            case "authors":
-                break;
-            case "albums":
-                break;
-            case "singers":
+                return store.sendData(type_dataReques);
+            case "output":
+                return output.returnDataByOutput(type_dataReques);
+            case "input":
                 break;
             default:
                 console.group("Core");
-                console.error("Option data is not config", dataReques);
+                console.error("Option data is not config", type_dataReques);
                 console.groupEnd();
         }
     },
-    rollback(){
-
-    },
-    preview(){
-
-    },
+   
     send(accusative, data, type, value){
         switch(accusative){
             case "store":
-                return store.setDataToStore(data, type);
-                break;
+                return store.setDataToStore(data, type, value);
             case "output":
-                break;
+                return output.setDataToOutput(data,type);
             case "input":
                 break;
             case "config":
@@ -88,42 +82,45 @@ const communicate = {
                 console.groupEnd();
         }
     },
-    action(type){
-        switch(type){
-            case "add":
-                return ;
-            case "remove":
-                return ;
-            case "replace":
-                return ;
-            
+    declare_action(type, declare){
+        if(!type || !declare) {
+            communicate.logger(
+            'err',"communicate", "please set valid value"
+            );
+            return;
         }
+        action.action_declare(type, declare);
     },
-
-    logger(type, ...log) {
+    action(createHandel){
+        if(createHandel){
+            window.handle = action.action_function;
+        }
+        return action.action_function;
+    },
+    logger(type,location, ...log) {
         switch (type) {
             case "log":
-                console.group("Core -------------> Log");
+                console.group(`Core -------------> Log at ${location} module`);
                 log.forEach((msg) => console.log(msg));
                 console.groupEnd();
                 break;
             case "infor":
-                console.group("Core -------------> Info");
+                console.group(`Core -------------> Info at ${location} module`);
                 log.forEach((msg) => console.info(msg));
                 console.groupEnd();
                 break;
             case "err":
-                console.group("Core -------------> Error");
+                console.group(`Core -------------> Error at ${location} module`);
                 log.forEach((msg) => console.error(msg));
                 console.groupEnd();
                 break;
             case "warr":
-                console.group("Core -------------> Warning");
+                console.group(`Core -------------> Warning at ${location} module`);
                 log.forEach((msg) => console.warn(msg));
                 console.groupEnd();
                 break;
             default:
-                console.group("Core -------------> Unknown Type");
+                console.group(`Core -------------> Unknown Type at ${location} module`);
                 console.warn("Unknown log type:", type);
                 log.forEach((msg) => console.log(msg));
                 console.groupEnd();

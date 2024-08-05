@@ -1,13 +1,13 @@
+"use stric";
 import communicate from "./Core/communicate.js";
 
 let data;
 
 const input = {
-    async getData(URL_SRC, type) {
-        let typeSave = "api";
+    async getData(URL_SRC, type, typeSave) {
         let accusative = "store";
         if (!type || !URL_SRC) {
-            communicate.logger("err", "URL or type is undefine!!!",
+            communicate.logger("err", "input", "URL or type is undefine!!!",
                 " Please set this", "View more in REAME.md",
                 "By input-->getData()");
             return;
@@ -25,11 +25,11 @@ const input = {
                     return communicate.send(accusative, data, typeSave);
                    
                 default:
-                    communicate.logger("war", "Type data result not have config!");
+                    communicate.logger("war","input", "Type data result not have config!");
                     return;
             }
         } catch (error) {
-            communicate.logger("err", "Failed to fetch data", error);
+            communicate.logger("err", "input", "Failed to fetch data", error);
         }
     }
     
