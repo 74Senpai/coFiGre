@@ -2,6 +2,8 @@
 import communicate from "./Core/communicate.js";
 
 
+const $ = document.querySelector.bind(document);
+
 const output_HTMLs = {
 
 }
@@ -29,7 +31,32 @@ const output = {
         }else{
             return communicate.logger("err",'output', `Key ${type} is undefine`);
         }
+    },
+    setDataView(data, type){
+        if(!data || !type){
+            communicate.logger("err", "view", 
+                "Please set valid value");
+            return;
+        }
+        output_HTMLs[type] = data;
+    },
+
+    render(location, type){
+        if(!location || !type){
+            communicate.logger('err', "output",
+                "Please declare valid value"
+            );
+            return;
+        }
+        if(!output_HTMLs[type]){
+            communicate.logger('err', "output",
+                `Type: ${type} is undefine`
+            );
+            return;
+        }
+        $(`${location}`).innerHTML = `${output_HTMLs[type]}`;
     }
+
 }
 
 export default output;

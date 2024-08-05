@@ -16,7 +16,9 @@ function configAPI() {
                     <source src="${i.audio_src}" type="audio/ogg">
                 </audio>
                 <div class="@{class_song_img_mini}">
-                    <img src="${i.img}" alt="@{alt}">    
+                    <img src="${i.img}" alt="@{alt}"
+                        onclick="handle.play(event)"
+                    >    
                 </div>
                 <div class="@{class_song_infor}">
                     <div class="@{class_name_song}">
@@ -28,7 +30,7 @@ function configAPI() {
                 </div>
                 <div class="@{class_more_infor}">
                     <button id="@{id_more}"
-                    onclick="handle('more')"
+                    onclick="handle.more('hihi')"
                     >...</button>
                 </div>
             </div>
@@ -42,7 +44,10 @@ function header(){
     let HTMLs = "";
     HTMLs +=`
         <div>
-            <div><h1>Hello Header</h1></div>
+            <div>
+                <h1>Hello Header</h1>
+                <button onclick="handle.test()">Click me</button>
+            </div>
         </div>
     `;
     return HTMLs;

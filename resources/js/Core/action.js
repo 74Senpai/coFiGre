@@ -19,13 +19,13 @@ const action = {
             return false;
         }
     },
-    action_function(type){
-        if(action_store[type]){
-           const fun = action_store[type];
-           fun();
+    action_function(){
+        if(action_store){
+            const fun = action_store;
+            return fun;
         }else{
             communicate.logger('infor',"action",
-                `action ${type} is undefine`
+                `action function null`
             );
             return false;
         }

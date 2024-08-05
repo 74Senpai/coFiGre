@@ -41,11 +41,8 @@ const communicate = {
             console.group("Core");
             console.error("Accusative is not type String", accusative);
             console.groupEnd();
-        } 
-        if(!data){
-            return result;
-        }
-        render();
+        }    
+        return result;
         
     },
     request_data(accusative, type_dataReques){
@@ -55,8 +52,6 @@ const communicate = {
                 return store.sendData(type_dataReques);
             case "output":
                 return output.returnDataByOutput(type_dataReques);
-            case "input":
-                break;
             default:
                 console.group("Core");
                 console.error("Option data is not config", type_dataReques);
@@ -64,23 +59,22 @@ const communicate = {
         }
     },
    
-    send(accusative, data, type, value){
+    send(accusative, data, type){
         switch(accusative){
             case "store":
-                return store.setDataToStore(data, type, value);
+                return store.setDataToStore(data, type);
             case "output":
                 return output.setDataToOutput(data,type);
-            case "input":
-                break;
-            case "config":
-                break;
             case "view":
-                break;
+                return output.setDataView(data, type);
             default:
                 console.group("Core------");
                 console.log("Accusative is not define: ", accusative);
                 console.groupEnd();
         }
+    },
+    view_render(location, type){
+        return output.render(location,type);
     },
     declare_action(type, declare){
         if(!type || !declare) {
@@ -93,9 +87,9 @@ const communicate = {
     },
     action(createHandel){
         if(createHandel){
-            window.handle = action.action_function;
+            window.handle = action.action_function('more');
         }
-        return action.action_function;
+        return action.action_function('more');
     },
     logger(type,location, ...log) {
         switch (type) {

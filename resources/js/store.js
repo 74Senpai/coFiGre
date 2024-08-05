@@ -1,9 +1,7 @@
 "use stric";
 import communicate from "./Core/communicate.js";
 
-const dataStore={
-
-};
+const dataStore = {};
 
 async function dataAPI(data, type) {
     if(!dataStore[type]){
