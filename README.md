@@ -53,13 +53,13 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
 
 ## 2. Syntax
 
-### 1. Logger
+ 1. **Logger**
     ```javascript
     - communicate.logger('type', 'loaction', ...'Some thing you need log');
     ```
     + type is type or log
     + location is loaction logger you call
-### 2. Contact
+2. **Contact**
     ```javascript
     communicate.contact('type'); 
     ```
@@ -67,7 +67,7 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
             Example: if you want get output module you need 
                       communicate.contact('output');
                     and this return output object/class/...
-### 3. send
+3. **send**
     ```javascript
         communication.send('accusive', data, 'key');
     ```
@@ -77,29 +77,31 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
             *Example*: `communication.send('output', "<h1>Home</>", 'home');`
                     Now in output, you have data with key: home and data is `<h1>Home</>`
 
-### 4. view-render
+4. **view-render**
     ```javascript
     - communicate.view-render(location, 'key');
-    ```
+    ```  
         + location is where you can innerHTML
             +location will use document.querySelecter('location');
         + Now let try render 'home' in to body:
             communicate.view_render('body', 'home');
-### 5. declare_action
+5. **declare_action**
     ```javascript
     - communicate.declare_action('name-action', 'logic');
     ```
+
         + name-action is name you want call this
         + logic is a function have a action you want do this when action called
-            *Example*: 
+    *Example*: 
+
             ```javascript
                 communicate.declare_action('viewHome', ()=>{
                     alter('Home Page');
                 });
-            ```
+            ```        
          - If you want use this action let read next syntax
 
-### 6. action
+6. **action**
     ```javascript
     - communicate.action(default);
     ```
