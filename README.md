@@ -1,32 +1,61 @@
 # myCore
 
-# 1. Preview
-- myCore give your method to rendering HTML and control event to easer, don't worry, myCore have syntax so basic and you can control this mini libary after your read guild
+## 1. Preview
+myCore provides methods for rendering HTML and controlling events easily. Don't worry, myCore has a basic syntax that you can control after reading this guide.
 
-    - Step 1 : Your create a js file and import this to index.html file
-        Example: <script type="module" src="./resources/js/Core/core.js"></script>
-            + In example, I create file name is core.js
+### Steps to Use myCore
 
-    - Step 2 : Your import libary to communicate.js and now, you can use this for every thing you need.
-    - Step 3 : Befor do some thing, your need create a file config.js to config you data
-        Your need return like this 
-            ![alt text](./readme_img/image.png)
-        * home() is you declare function, you can return you HTML
-        * "home" is name you want when you call this, you get data from home() you declare
+1. **Create a JS file and import it into your index.html file**
+    ```html
+    <script type="module" src="./resources/js/Core/core.js"></script>
+    ```
+    *Example:* In the example above, the file name is `core.js`.
 
-      + You can config API data if you want
+2. **Import the library into communicate.js**
+    Now you can use it for everything you need.
 
-    - Step 4 : Now, you go back core.js file and save you "home" to output
-        - Syntax: 
-                const home = config.setConfig('home');
-                communicate.send('output', home, 'home');
-    - Step 5 : Now, you can render this by funtion 
-        - Syntax:
-                communicate.view_render("body", 'home');
+3. **Create a config.js file to configure your data**
+    You need to return it like this:
+    ```javascript
+    function home() {
+        return `
+            <h1>This is Home</h1>
+        `;
+    }
 
-# 2.Syntax 
+    const config = {
+        setConfig(type) {
+            switch (type) {
+                case "home":
+                    return home();
+                // Add other configurations here
+                default:
+                    console.error(`Type ${type} is undefined`);
+            }
+        }
+    };
 
-    - communicate.logger('type', 'loaction', ...'Some thing you need log');
+    export default config;
+    ```
+    - `home()` is a function you declare to return your HTML.
+    - `"home"` is the name you want to use when you call this function to get the data returned by `home()`.
+
+4. **Save your "home" to output in core.js**
+    ```javascript
+    const home = config.setConfig('home');
+    communicate.send('output', home, 'home');
+    ```
+
+5. **Render this by using the function**
+    ```javascript
+    communicate.view_render("body", 'home');
+    ```
+
+## 2. Syntax
+
+### Logger
+```javascript
+ - communicate.logger('type', 'loaction', ...'Some thing you need log');
         + type is type or log
         + location is loaction logger you call
 
@@ -62,10 +91,3 @@
             Exampl: communicate.action(true);
                 now in local, you have handle.viewHome() function
             you can use this in config file witch event like onclick,...
-    
-    
-
-
-
-        
-
