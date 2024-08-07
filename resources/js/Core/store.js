@@ -4,6 +4,10 @@ import communicate from "./communicate.js";
 const dataStore = {};
 const store_local = {};
 
+(()=>{
+    const store_local = JSON.parse(localStorage.getItem('store_data')) || {};
+})();
+
 async function dataAPI(data, type) {
     if(!dataStore[type]){
         dataStore[type] = data;

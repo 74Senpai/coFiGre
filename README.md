@@ -136,3 +136,10 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
     + `key` is name of key you declare befor
     + If you call key your don't declare befor, this key will be declare with false value and return
     
+9. **request_data**
+    ```javascript
+        communicate.request_data(accusative, type_dataReques);
+    ```
+    + `accusative` is where you need get data (output, store).
+    + `type_dataReques` is type of data you save , it is name key.
+    
