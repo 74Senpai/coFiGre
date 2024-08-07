@@ -53,45 +53,48 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
 
 ## 2. Syntax
 
- 1. **Logger**
+1. **Logger**
     ```javascript
     - communicate.logger('type', 'loaction', ...'Some thing you need log');
     ```
-    + type is type or log
-    + location is loaction logger you call
+    + `type` is type or log
+    + `location` is loaction logger you call.  
+    
 2. **Contact**
     ```javascript
     communicate.contact('type'); 
     ```
-        + type is type you need return this object
-            Example: if you want get output module you need 
-                      communicate.contact('output');
-                    and this return output object/class/...
+    + `type` is type you need return this object
+    *Example*: If you want get output module you need 
+                `communicate.contact('output');`
+            and this return output object/class/...other
+
 3. **send**
     ```javascript
         communication.send('accusive', data, 'key');
     ```
-        + accusive is where data you need seed this.  
-        + data is every think.  
-        + key is name of key you want accusive get this.  
-            *Example*: `communication.send('output', "<h1>Home</>", 'home');`
-                    Now in output, you have data with key: home and data is `<h1>Home</>`
+    + `accusive` is where data you need seed this.  
+    + `data` is every think.  
+    + `key` is name of key you want accusive get this.  
+        *Example*: `communication.send('output', "<h1>Home</>", 'home');`
+                Now in output, you have data with key: home and data is `<h1>Home</>`
 
 4. **view-render**
     ```javascript
     - communicate.view-render(location, 'key');
     ```  
-        + location is where you can innerHTML
-            +location will use document.querySelecter('location');
-        + Now let try render 'home' in to body:
-            communicate.view_render('body', 'home');
+    + `location` is where you can innerHTML
+        +`location` will use `document.querySelecter('location');`
+    + Now let try render 'home' in to body:
+        `communicate.view_render('body', 'home');`
+
 5. **declare_action**
     ```javascript
     - communicate.declare_action('name-action', 'logic');
     ```
 
-        + name-action is name you want call this
-        + logic is a function have a action you want do this when action called
+    + `name-action` is name you want call this
+    + `logic` is a function have a action you want do this when action called
     *Example*: 
 
             ```javascript
@@ -99,13 +102,37 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
                     alter('Home Page');
                 });
             ```        
-         - If you want use this action let read next syntax
+    - If you want use this action let read next syntax
 
 6. **action**
     ```javascript
     - communicate.action(default);
     ```
-        + default is boolen type, chose true if you want user default name(handle) to call function you declare or you can set this in avrible and call avrible name
-            Exampl: communicate.action(true);
-                now in local, you have handle.viewHome() function
-            you can use this in config file witch event like onclick,...
+    + `default` is boolen type, chose true if you want user default name(handle) to call function you declare or you can set this in avrible and call avrible name
+    *Example*: `communicate.action(true);`
+            now in local, you have `handle.viewHome()` function
+        you can use this in config file witch event like onclick,...
+
+7. **set_data_localStore**
+    ```javascript
+        communication.set_data_localStore(key, status);
+        /*-----------*/
+        communication.set_data_localStore('Read', true);
+        // store_data = {Read : true};
+    ```
+    + `key` is name key data you want declare and set into local storage.
+    + `status` is boolen type  or other this may be save you status or data.
+    *Example*: `communication.set_data_localStore('Read', true);`
+    - Now in local storage, you have data_storage object with key Read and value is true
+
+8. **get_data_storage**
+    ```javascript
+        communication.get_data_storage(key);
+        /*------*/
+        communication.get_data_storage('Read'); // true
+        communication.get_data_storage('something'); // false
+
+    ```
+    + `key` is name of key you declare befor
+    + If you call key your don't declare befor, this key will be declare with false value and return
+    
