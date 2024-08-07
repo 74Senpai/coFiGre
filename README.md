@@ -42,7 +42,13 @@
         + key is name of key you want accusive get this
             Example: communication.send('output', "<h1>Home</>", 'home');
                     Now in output, you have data with key: home and data is <h1>Home</>
-    
+
+    - communicate.view-render(location, 'key');
+        + location is where you can innerHTML
+            +location will use document.querySelecter('location');
+        + Now let try render 'home' in to body:
+            communicate.view_render('body', 'home');
+
     - communicate.declare_action('name-action', 'logic')
         + name-action is name you want call this
         + logic is a function have a action you want do this when action called
@@ -58,6 +64,7 @@
             you can use this in config file witch event like onclick,...
     
     
+
 
 
         
