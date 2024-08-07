@@ -5,7 +5,7 @@ const dataStore = {};
 const store_local = {};
 
 (()=>{
-    store_local = JSON.parse(localStorage.getItem('store_data')) || {};
+    store_local = JSON.parse(localStorage.getItem('store_data'));
 })();
 
 async function dataAPI(data, type) {
