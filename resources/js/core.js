@@ -22,5 +22,5 @@ import communicate from "./Core/communicate.js";
 
     const goal = config.setConfig('goal');
     communicate.send('output', goal, 'goal');
-
+    
 })();

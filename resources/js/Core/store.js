@@ -16,6 +16,9 @@ async function dataAPI(data, type) {
     }
 }
 
+function save(){
+    localStorage.setItem('store_data', JSON.stringify(store_local));
+}
 
 const store = {
     async setDataToStore(data, type){
@@ -42,13 +45,17 @@ const store = {
             return false;
         }
         store_local[key] = status;
-        localStorage.setItem('store_data', JSON.stringify(store_local));
+        save();
         return true;
     },
 
-    get_data_store(){
-        const data = JSON.parse(localStorage.getItem('store_data')) || {};
-        return data; 
+    get_data_store(key){
+        if(!store_local[key]){
+            store_local[key] = false;
+            save();
+        }
+        const data = JSON.parse(localStorage.getItem('store_data'));
+        return data[key]; 
     }
 }
 

@@ -127,9 +127,9 @@ const communicate = {
         }
     },
 
-    data_storage(){
+    get_storage(keys){
         try{
-            return store.get_data_store();
+            return store.get_data_store(keys);
         }catch(err){
             communicate.logger('err', 'communicate', 
                 'get data to local storage faild');
