@@ -1,5 +1,5 @@
 "use stric";
-import communicate from "./communicate.js";
+import communicate from "./Core/communicate.js";
 
 function header(){
     let HTMLs = "";

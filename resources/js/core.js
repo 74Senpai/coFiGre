@@ -1,6 +1,6 @@
 "use stric";
 import config from "./config.js";
-import communicate from "./communicate.js";
+import communicate from "./Core/communicate.js";
 (async ()=>{
     const $ = document.querySelector.bind(document);
     const header = config.setConfig('header');

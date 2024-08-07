@@ -1,7 +1,7 @@
 "use stric";
-import input from "../input.js";
-import output from "../output.js";
-import store from "../store.js";
+import input from "./input.js";
+import output from "./output.js";
+import store from "./store.js";
 import action from "./action.js";
 
 
@@ -20,7 +20,6 @@ const communicate = {
                     result = input;
                     break;
                 case "OUTPUT":
-                    output._setKey(data);
                     result = output;
                     break;
                 case "STORE":
