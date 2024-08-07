@@ -2,10 +2,11 @@
 import communicate from "./communicate.js";
 
 const dataStore = {};
-const store_local = {};
 
-(()=>{
-    store_local = JSON.parse(localStorage.getItem('store_data'));
+
+const store_local = (()=>{
+    const tmp = JSON.parse(localStorage.getItem('store_data')) || {};
+    return tmp;
 })();
 
 async function dataAPI(data, type) {
