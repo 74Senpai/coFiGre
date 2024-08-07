@@ -32,14 +32,6 @@ const output = {
             return communicate.logger("err",'output', `Key ${type} is undefine`);
         }
     },
-    setDataView(data, type){
-        if(!data || !type){
-            communicate.logger("err", "view", 
-                "Please set valid value");
-            return;
-        }
-        output_HTMLs[type] = data;
-    },
 
     render(location, type){
         if(!location || !type){

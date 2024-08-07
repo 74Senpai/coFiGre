@@ -1,54 +1,49 @@
 "use stric";
 import communicate from "./communicate.js";
 
-function configAPI() {
+function header(){
     let HTMLs = "";
-    let data = communicate.request_data('store','api_playlist');
-    // communicate.logger('log',"config", data);
-    let songList = data.play_list;
-    let index = 0;
-    for (let i of songList) {
-        // console.log(i)
-        HTMLs += `
-        <div class="@{class_song_tag}">
-            <div class="@{class_song}" data-index="${index}">
-                <audio preload="none">
-                    <source src="${i.audio_src}" type="audio/ogg">
-                </audio>
-                <div class="@{class_song_img_mini}">
-                    <img src="${i.img}" alt="@{alt}"
-                        onclick="handle.play(event)"
-                    >    
-                </div>
-                <div class="@{class_song_infor}">
-                    <div class="@{class_name_song}">
-                        ${i.name_song}<img width="12px" height="12px" style="display: none; background-color: rgba: (0,0,0,0); margin-left:10px;"src="">    
-                    </div>
-                    <div class="@{class_author}">
-                        ${i.author}
-                    </div>
-                </div>
-                <div class="@{class_more_infor}">
-                    <button id="@{id_more}"
-                    onclick="handle.more('hihi')"
-                    >...</button>
-                </div>
+    HTMLs += `
+        <div class="header">
+            <div class="tools bar">
+                <div class="" onclick="handle.click('home')">Home</div>
+                <div class="" onclick="handle.click('readme')">README</div>
+                <div class="" onclick="handle.click('goal')">CORE GOAL</div>
+                <div class="">IDEA STRUCT</div>
+                <div class="">ABOUT ME - AUTHOR</div>
+                <div class="">SOURCE</div>
+                <div class="">SIGN IN</div>
             </div>
-        </div>`;
-        index++;
-    }
+        </div>
+        <div id="body"></div>
+            `;
     return HTMLs;
 }
 
-function header(){
+function home(){
     let HTMLs = "";
     HTMLs +=`
-        <div>
-            <div>
-                <h1>Hello Header</h1>
-                <button onclick="handle.test()">Click me</button>
-            </div>
-        </div>
+       <h1>This is Home bro</h1>
+    `;
+    return HTMLs;
+}
+
+function readme(){
+    return `
+        <h2>This is ReadMe </h2>
+    `;
+}
+
+function goal(){
+    return `
+        <h2>My goal is become a Master web Dev</h2>
+    `;
+}
+
+function footer(){
+    let HTMLs = "";
+    HTMLs +=`
+       
     `;
     return HTMLs;
 }
@@ -56,11 +51,16 @@ function header(){
 const config = {
     setConfig(type) {
         switch (type) {
-            case "api_playlist":
-                communicate.logger("infor", "config", "Set config for API");
-                return configAPI(); 
+            case "home":
+                return home(); 
             case "header":
                 return header();
+            case "footer":
+                return footer();
+            case "readme":
+                return readme();
+            case "goal":
+                return goal();
             default:
                 communicate.logger("err", "config", "Can not set config",
                     `${type} is undefine`

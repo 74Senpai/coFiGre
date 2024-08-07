@@ -2,6 +2,7 @@
 import communicate from "./Core/communicate.js";
 
 const dataStore = {};
+const store_local = {};
 
 async function dataAPI(data, type) {
     if(!dataStore[type]){
@@ -31,6 +32,23 @@ const store = {
         if(dataStore[type]) 
             return dataStore[type];
         return `Key ${type} is undefine`;
+    },
+
+    save_to_storage(key, status){
+        if(!key){
+            communicate.logger('err','store',
+                'please delare valid value'
+            );
+            return false;
+        }
+        store_local[key] = status;
+        localStorage.setItem('store_data', JSON.stringify(store_local));
+        return true;
+    },
+
+    get_data_store(){
+        const data = JSON.parse(localStorage.getItem('store_data')) || {};
+        return data; 
     }
 }
 

@@ -65,8 +65,6 @@ const communicate = {
                 return store.setDataToStore(data, type);
             case "output":
                 return output.setDataToOutput(data,type);
-            case "view":
-                return output.setDataView(data, type);
             default:
                 console.group("Core------");
                 console.log("Accusative is not define: ", accusative);
@@ -120,8 +118,24 @@ const communicate = {
                 console.groupEnd();
                 break;
         }
+    },
+    set_data_localStore(key, status){
+        try{
+            store.save_to_storage(key, status);
+        }catch(err){
+            communicate.logger('err', 'communicate', 
+                'set data to local storage faild');
+        }
+    },
+
+    data_storage(){
+        try{
+            return store.get_data_store();
+        }catch(err){
+            communicate.logger('err', 'communicate', 
+                'get data to local storage faild');
+        }
     }
-    
 }
 
 export default communicate;
