@@ -9,10 +9,10 @@ function header(){
                 <div class="" onclick="handle.click('home')">Home</div>
                 <div class="" onclick="handle.click('readme')">README</div>
                 <div class="" onclick="handle.click('goal')">CORE GOAL</div>
-                <div class="">IDEA STRUCT</div>
-                <div class="">ABOUT ME - AUTHOR</div>
-                <div class="">SOURCE</div>
-                <div class="">SIGN IN</div>
+                <div class="" onclick="handle.click('idea')">IDEA STRUCT</div>
+                <div class="" onclick="handle.click('aboutme')">ABOUT ME</div>
+                <div class="" onclick="handle.click('source')">SOURCE</div>
+                <div class="" onclick="handle.click('signin')">SIGN IN</div>
             </div>
         </div>
         <div id="body"></div>
@@ -40,12 +40,36 @@ function goal(){
     `;
 }
 
+function idea(){
+    return`
+        <h2>My idea is stop </h2>
+    `;
+}
+
 function footer(){
     let HTMLs = "";
     HTMLs +=`
        
     `;
     return HTMLs;
+}
+
+function aboutme(){
+    return `
+        <h2>Hi am Thong, now, you can add frend me </h2>
+    `;
+}
+
+function source(){
+    return `
+        <h2>View my source code in github </h2>
+    `;
+}
+
+function signin(){
+    return `
+        <h1>Sign In is comming soon !!!</h1>
+    `;
 }
 
 const config = {
@@ -61,6 +85,14 @@ const config = {
                 return readme();
             case "goal":
                 return goal();
+            case "idea":
+                return idea();
+            case "aboutme":
+                return aboutme();
+            case "source":
+                return source();
+            case "signin":
+                return signin();
             default:
                 communicate.logger("err", "config", "Can not set config",
                     `${type} is undefine`

@@ -6,8 +6,20 @@ import action from "./action.js";
 
 
 const $ = document.querySelector.bind(document);
+const isLog = typeLog();
+
+function typeLog(){
+    const logMap = new Map();
+    logMap.set('log', []);
+    logMap.set('err', []);
+    logMap.set('warr', []);
+    logMap.set('infor', []);
+    logMap.set('all', []);
+    return logMap;
+}
 
 const communicate = {
+    
     
     contact(accusative, data){
         let result;
@@ -89,6 +101,11 @@ const communicate = {
         return action.action_function('more');
     },
     logger(type,location, ...log) {
+        const isLock = isLog.get(`${type}`);
+        if (isLog.get('all').some(locati => locati === `${location}` || locati === `all`))return;
+        if(isLock){
+            if(isLock.some(locati => locati === `${location}`|| locati === `all`)) return;
+        }
         switch (type) {
             case "log":
                 console.group(`Core -------------> Log at ${location} module`);
@@ -134,6 +151,38 @@ const communicate = {
             communicate.logger('err', 'communicate', 
                 'get data to local storage faild');
         }
+    },
+
+    unlogger(type, location, isLock){
+        if(!type || !location){
+            communicate.logger('err', 'communicate', 
+                'please declare valid value',
+            'unlogger(type,location, isLock)');
+            return;
+        }
+        if(isLock){
+            const key = isLog.get(`${type}`);
+            if(key){
+                key.push(`${location}`);
+            }else{
+                communicate.logger('err', 'communicate', 
+                    'please declare valid value',
+                'type is not a type logger');
+                return;
+            }
+        }else{
+            const key = isLog.get(`${type}`);
+            if(key){
+                const lock = key.filter(item => item !== `${location}`);
+                isLog.set(`${type}`, lock);
+            }else{
+                communicate.logger('err', 'communicate', 
+                    'please declare valid value',
+                'type is not a type logger');
+                return;
+            }
+        }
+
     }
 }
 

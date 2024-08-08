@@ -143,3 +143,18 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
     + `accusative` is where you need get data (output, store).
     + `type_dataReques` is type of data you save , it is name key.
     
+10. **unlogger**
+    ```javascript
+        communicate.unlogger(type, location, isLock);
+        /*--------*/
+        communicate.unlogger('log', 'output', true);
+        //--> this will be lock all console have type log from output
+
+        communicate.unlogger('log', 'output', false);
+        //--> this will be unlock all console have type log from output
+
+        communicate.unlogger('all', 'all', true);
+        //-->This will be lock all logger from Core
+    ```
+    + `type` is type you want return in console
+    + `location` is where you want block or unblock
