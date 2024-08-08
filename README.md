@@ -161,3 +161,14 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
     ```
     + `type` is type you want return in console
     + `location` is where you want block or unblock
+
+11. **get_data_API**
+    ```javascript
+        await communicate.get_data_API(URL_SRC, type, keyName);
+    ```
+    + `URL_SRC` is url or src API you need request
+    + `type` is type of data (json, txt, html, ...)
+    + `keyName` is name key you want save data to store
+    + You sould use async/await to sure get data done befor you config this
+    
+
