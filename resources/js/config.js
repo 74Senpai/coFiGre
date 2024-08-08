@@ -16,6 +16,7 @@ function header(){
             </div>
         </div>
         <div id="body"></div>
+        <div id="footer"></div>
             `;
     return HTMLs;
 }
@@ -24,6 +25,20 @@ function home(){
     let HTMLs = "";
     HTMLs +=`
        <h1>This is Home bro</h1>
+       <div class="OverView">
+            <div class="intro">
+                <div class="text"> Create user interfaces esasyli with coFiGer library </div>
+            </div>
+            <div class="intro">
+                <div class="text"> Declare handel event with method fast and open like sky </div>
+            </div>
+            <div class="intro">
+               <div class="text"> Save data to local storage by key, value in 1 step </div>
+            </div>
+            <div class="intro">
+                <div class="text"> Support get API and easy to config </div>
+            </div>
+       </div>
     `;
     return HTMLs;
 }
@@ -31,6 +46,7 @@ function home(){
 function readme(){
     return `
         <h2>This is ReadMe </h2>
+        ${communicate.request_data('store', 'readme')}
     `;
 }
 
@@ -49,7 +65,22 @@ function idea(){
 function footer(){
     let HTMLs = "";
     HTMLs +=`
-       
+       <div class="footer">
+            <div class="contact">
+                <div class="me">
+                    <div class="name">Create : Tran Duc Thong</div>
+                    <div class="PhoneNumber">Phone Number : 0848***159</div>
+                    <div class="email">Email : trantran71***4@gmail.com</div>
+                    <div class="Loaction">Live : Now in Da Nang Viet Nam</div>
+                </div>
+                <div class="social">
+                    <div class="facebook"> Facebook: </div>
+                    <div class="youtube">Youtube :</div>
+                    <div class="github">Github :</div>
+                    <div class="linkedin">Linkedin :</div>
+                </div>
+            </div>
+       </div>
     `;
     return HTMLs;
 }

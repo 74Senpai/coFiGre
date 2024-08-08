@@ -11,7 +11,10 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
     ```
     *Example:* In the example above, the file name is `core.js`.
 
-2. **Import the library into communicate.js**
+2. **Import the library**
+    ```javascript 
+        import communicate from './Core/communication.js';
+    ```
     Now you can use it for everything you need.
 
 3. **Create a config.js file to configure your data**
@@ -97,11 +100,11 @@ myCore provides methods for rendering HTML and controlling events easily. Don't 
     + `logic` is a function have a action you want do this when action called
     *Example*: 
 
-            ```javascript
-                communicate.declare_action('viewHome', ()=>{
-                    alter('Home Page');
-                });
-            ```        
+    ```javascript
+        communicate.declare_action('viewHome', ()=>{
+            alter('Home Page');
+        });
+    ```        
     - If you want use this action let read next syntax
 
 6. **action**

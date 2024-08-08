@@ -19,7 +19,6 @@ const input = {
                 case "json":
                     data = await response.json();
                     return communicate.send(accusative, data, typeSave);
-                    
                 case "txt":
                     data = await response.text();
                     return communicate.send(accusative, data, typeSave);

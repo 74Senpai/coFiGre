@@ -182,7 +182,11 @@ const communicate = {
                 return;
             }
         }
+    },
 
+    async get_data_API(URL_SRC, type, keyName){
+        await input.getData(URL_SRC, type, keyName);
+        return true;
     }
 }
 
