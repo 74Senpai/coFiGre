@@ -1,0 +1,22 @@
+[
+    {
+        "title" : "Create user interfaces esasyli with coFiGer library ",
+        "header": "./readme_img/header.png",
+        "config": "./readme_img/config.png",
+        "buildUI": "./readme_img/easyUI.png"
+    },
+
+    {
+        "title" : "Your need config like this",
+        "header": "./readme_img/config.png",
+        "config": "./readme_img/config.png",
+        "buildUI": "./readme_img/easyUI.png"
+    },
+    {
+        "title" : "Now you need save data and render this if you want",
+        "header": "./readme_img/easyUI.png",
+        "config": "./readme_img/config.png",
+        "buildUI": "./readme_img/easyUI.png"
+    }
+
+]

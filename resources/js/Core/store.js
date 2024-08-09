@@ -12,7 +12,9 @@ const store_local = (()=>{
 async function dataAPI(data, type) {
     if(!dataStore[type]){
         dataStore[type] = data;
-        communicate.logger('infor',  "Store", `Set data for key ${type} done`);
+        communicate.logger('infor',  "Store", `Set data for key ${type} done`,
+            "value: ", data
+        );
         return true;
     }else{
         communicate.logger('infor', "Store",  `replace data for key ${type}`);

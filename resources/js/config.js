@@ -21,32 +21,49 @@ function header(){
     return HTMLs;
 }
 
+function music(){
+    const playlist = communicate.request_data('store', 'music');
+    const music = playlist.play_list;
+    return`
+        <div class="intro">
+            <div class="text">${music[0].name_song} 
+                <p onclick="handle.play()"> Click me to <span class="play">play</span> music </p>
+                 <div class="music"> <img src="${music[0].img}"></div>
+            </div>
+           <div class="img configMusic"><img src="./readme_img/musicPlay.png"></div>
+            <audio id="music" preload="none">
+                <source src="${music[0].audio_src}" type="audio/ogg">
+            </audio>
+        </div>
+    `;
+}
+
 function home(){
     let HTMLs = "";
-    HTMLs +=`
-       <h1>This is Home bro</h1>
-       <div class="OverView">
+    let tmp = "";
+    
+    const imgAPI = communicate.request_data('store', 'imgAPI');
+    for(let i = 0 ; i < imgAPI.length ; i++){
+        tmp+=`
             <div class="intro">
-                <div class="text"> Create user interfaces esasyli with coFiGer library </div>
+                <div class="text"> ${imgAPI[i].title}</div>
+                <div class="img"><img src="${imgAPI[i].header}" alt=""></div>
             </div>
-            <div class="intro">
-                <div class="text"> Declare handel event with method fast and open like sky </div>
-            </div>
-            <div class="intro">
-               <div class="text"> Save data to local storage by key, value in 1 step </div>
-            </div>
-            <div class="intro">
-                <div class="text"> Support get API and easy to config </div>
-            </div>
-       </div>
-    `;
+        `
+    }
+    HTMLs = `
+        <div class="OverView">
+            ${tmp}
+            ${music()}
+        </div>
+    `
     return HTMLs;
 }
 
 function readme(){
     return `
         <h2>This is ReadMe </h2>
-        ${communicate.request_data('store', 'readme')}
+        <pre>${communicate.request_data('store', 'readme')}</pre>
     `;
 }
 

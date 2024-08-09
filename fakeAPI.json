@@ -5,7 +5,7 @@
             "name_song": "Hãy Trao Cho Anh",
             "author": "Sơn Tùng M-TP ft. Snoop Dogg",
             "img": "https://i.scdn.co/image/ab67616d00001e023403b37254ffacb7732e92da",
-            "audio_src": "./resources/sound/hayTraochoAnh.mp3"
+            "audio_src": "./resources/data/sound/hayTraochoAnh.mp3"
         },
         {
             "name_song": "Chạy Ngay Đi",
