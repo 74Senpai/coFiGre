@@ -8,11 +8,11 @@ function header(){
             <div class="tools bar">
                 <div class="" onclick="handle.click('home')">Home</div>
                 <div class="" onclick="handle.click('readme')">README</div>
-                <div class="" onclick="handle.click('goal')">CORE GOAL</div>
-                <div class="" onclick="handle.click('idea')">IDEA STRUCT</div>
-                <div class="" onclick="handle.click('aboutme')">ABOUT ME</div>
-                <div class="" onclick="handle.click('source')">SOURCE</div>
-                <div class="" onclick="handle.click('signin')">SIGN IN</div>
+                <div class="" onclick="handle.click('commingsoon')">CORE GOAL</div>
+                <div class="" onclick="handle.click('commingsoon')">IDEA STRUCT</div>
+                <div class="" onclick="handle.click('commingsoon')">ABOUT ME</div>
+                <div class="" onclick="handle.click('commingsoon')">SOURCE</div>
+                <div class="" onclick="handle.click('commingsoon')">SIGN IN</div>
             </div>
         </div>
         <div id="body"></div>
@@ -26,7 +26,8 @@ function music(){
     const music = playlist.play_list;
     return`
         <div class="intro">
-            <div class="text">${music[0].name_song} 
+            <div class="text">
+                <p>${music[0].name_song} </p>
                 <p onclick="handle.play()"> Click me to <span class="play">play</span> music </p>
                  <div class="music"> <img src="${music[0].img}"></div>
             </div>
@@ -46,7 +47,7 @@ function home(){
     for(let i = 0 ; i < imgAPI.length ; i++){
         tmp+=`
             <div class="intro">
-                <div class="text"> ${imgAPI[i].title}</div>
+                <div class="text"> ${ imgAPI[i].title}</div>
                 <div class="img"><img src="${imgAPI[i].header}" alt=""></div>
             </div>
         `
@@ -62,8 +63,7 @@ function home(){
 
 function readme(){
     return `
-        <h2>This is ReadMe </h2>
-        <pre>${communicate.request_data('store', 'readme')}</pre>
+        <div class="readme">${communicate.request_data('store', 'readme')}</div class="readme">
     `;
 }
 
@@ -84,7 +84,7 @@ function footer(){
     HTMLs +=`
        <div class="footer">
             <div class="contact">
-                <div class="me">
+                <div class="me" "sensor.action()">
                     <div class="name">Create : Tran Duc Thong</div>
                     <div class="PhoneNumber">Phone Number : 0848***159</div>
                     <div class="email">Email : trantran71***4@gmail.com</div>

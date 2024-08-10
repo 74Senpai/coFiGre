@@ -96,9 +96,9 @@ const communicate = {
     },
     action(createHandel){
         if(createHandel){
-            window.handle = action.action_function('more');
+            window.handle = action.action_function();
         }
-        return action.action_function('more');
+        return action.action_function();
     },
     logger(type,location, ...log) {
         const isLock = isLog.get(`${type}`);
@@ -183,7 +183,6 @@ const communicate = {
             }
         }
     },
-
     async get_data_API(URL_SRC, type, keyName){
         await input.getData(URL_SRC, type, keyName);
         return true;

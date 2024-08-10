@@ -2,6 +2,7 @@
 import communicate from "./communicate.js";
 
 const action_store = {};
+const sensor_store = {};
 
 const action = {
     action_declare(type, declare){

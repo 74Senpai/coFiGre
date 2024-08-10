@@ -1,0 +1,175 @@
+<h2>Read me can help you cant use coFiGer like master</h2>
+<hr>
+<h3>Now, start creating a new hello world web with me</h3>
+<div style="height:30px"></div>
+
+<div class="step">
+    <h4>1. Create file and config</h4>
+    <p>If you don't have <b>Core</b> in your workspace, you need to download it from my GitHub.
+        Now, let's create a new JavaScript file with any name. For example, I use <code>core.js</code> as the name you
+        create.
+        After creating the <code>core.js</code> file, you create another JS file to set HTML for the web. I will call it
+        the <code>config.js</code> file.
+    </p>
+    <p>Now, let's do something:</p>
+    <ul>
+        <li>Step 1: Import <code>communicati</code> from coFiGer
+            <div class="guilde"><img src="../../readme_img/step1.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 2: You call <code>communicati.send()</code> and send your HTML code to "output". "Output" can save your
+            HTML code with a key name.
+            <div class="guilde"><img src="../../readme_img/step2.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 3: After sending data to "output", you need to remember the key of the data you sent and use
+            <code>communication.view_render()</code> to render the data you sent before.
+            <div class="guilde"><img src="../../readme_img/step2.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 4: Create an HTML file and import <code>core.js</code>
+            <div class="guilde"><img src="../../readme_img/import.png" alt="Guide Image"></div>
+            <div class="guilde"><img src="../../readme_img/helloworld.png" alt="Guide Image"></div>
+        </li>
+    </ul>
+</div>
+<div class="step">
+    <h4>How about <code>config.js</code>?</h4>
+
+    <p>If your website can render your code, let's try something bigger and more complex.</p>
+    <ul>
+        <li>Step 1: Open <code>config.js</code> file and create an object <code>config</code>, then export it.
+            <div class="guilde"><img src="../../readme_img/createConfig.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 2: Go back to <code>core.js</code> and import <code>config</code> from <code>config.js</code>.
+            <div class="guilde"><img src="../../readme_img/importConfig.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 3: Open <code>config.js</code> again and create a function <code>home()</code> that returns an HTML
+            code.
+            <div class="guilde"><img src="../../readme_img/homeFunction.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 4: Now, in the <code>config</code> object, create the method <code>configData(type)</code>, and you
+            need to use switch-case or if-else to check "type".
+            <div class="guilde"><img src="../../readme_img/createMethodConfig.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 5: Now, set the condition key "home" and return <code>home()</code> function if true.
+            <div class="guilde"><img src="../../readme_img/setKeyToReturn.png" alt="Guide Image"></div>
+        </li>
+        <li>Step 6: Go back to <code>core.js</code> and call <code>config.configData('home')</code>. Now you can render
+            HTML by the config file.
+            <div class="guilde"><img src="../../readme_img/renderHome.png" alt="Guide Image"></div>
+            <div class="guilde"><img src="../../readme_img/homeView.png" alt="Guide Image"></div>
+        </li>
+    </ul>
+</div>
+
+<div class="syntax">
+    <h2>Syntax</h2>
+    <div class="function">
+        <h3>Logger</h3>
+        <p><code>communicate.logger('type', 'location', ...'Something you need log');</code></p>
+        <p>
+            <b>type</b> is the type of log. <br>
+            <b>location</b> is the location of the logger you call.
+        </p>
+    </div>
+
+    <div class="function">
+        <h3>Contact</h3>
+        <p><code>communicate.contact('type');</code></p>
+        <p>
+            <b>type</b> is the type you need to return from this object.
+            Example: If you want to get the output module, you need to call
+            <code>communicate.contact('output');</code> and this will return the output object/class/...other.
+        </p>
+    </div>
+
+    <div class="function">
+        <h3>Send</h3>
+        <p><code>communication.send('accusive', data, 'key');</code></p>
+        <p>
+            <b>accusive</b> is where the data is sent to. <br>
+            <b>data</b> is everything. <br>
+            <b>key</b> is the name of the key you want to store the data in.
+            Example: <code>communication.send('output', "&lt;h1&gt;Home&lt;/h1&gt;", 'home');</code>
+            Now in output, you have data with key "home" and the data is <code>&lt;h1&gt;Home&lt;/h1&gt;</code>.
+        </p>
+    </div>
+    <div class="function">
+        <h3>View-Render</h3>
+        <p><code>communicate.view_render(location, 'key');</code></p>
+        <p>
+            <b>location</b> is where you can use <code>innerHTML</code>.
+            Example: Let's try to render 'home' into the body:
+            <code>communicate.view_render('body', 'home');</code>
+        </p>
+    </div>
+
+    <div class="function">
+        <h3>Declare Action</h3>
+        <p><code>communicate.declare_action('name-action', logic);</code></p>
+        <p>
+            <b>name-action</b> is the name you want to call this action. <br>
+            <b>logic</b> is a function that defines the action you want to perform when the action is called.
+            Example:
+            <code>communicate.declare_action('viewHome', function() { alert('Home Page'); });</code>
+        </p>
+
+    </div>
+    <div class="function">
+        <h3>Action</h3>
+        <p><code>communicate.action(default);</code></p>
+        <p>
+            <b>default</b> is a boolean type. Choose true if you want to use the default name (handle) to call the
+            function you declared, or you can set this in a variable and call the variable name.
+            Example: <code>communicate.action(true);</code>
+            Now locally, you have the function <code>handle.viewHome()</code> that you can use in the config file with
+            events like <code>onclick</code>, etc.
+        </p>
+    </div>
+
+    <div class="function">
+        <h3>Set Data LocalStore</h3>
+        <p><code>communication.set_data_localStore(key, status);</code></p>
+        <p>
+            <b>key</b> is the name of the key you want to declare and set into local storage. <br>
+            <b>status</b> is a boolean type or other types that may save your status or data.
+            Example: <code>communication.set_data_localStore('Read', true);</code>
+            Now in local storage, you have a data_storage object with key "Read" and value "true".
+        </p>
+
+    </div>
+
+    <div class="function">
+        <h3>Get Data Storage</h3>
+        <p><code>communication.get_data_storage(key);</code></p>
+        <p>
+            <b>key</b> is the name of the key you declared before. If you call a key you haven't declared before, this
+            key will be declared with a value of false and returned.
+            Example: <code>communication.get_data_storage('Read');</code> returns true.
+        </p>
+    </div>
+
+    <div class="function">
+        <h3>Request Data</h3>
+        <p><code>communicate.request_data(accusative, type_dataRequest);</code></p>
+        <p>
+            <b>accusative</b> is where you need to get data (output, store). <br>
+            <b>type_dataRequest</b> is the type of data you save; it is the name key.
+        </p>
+
+    </div>
+
+    <div class="function">
+        <h3>Unlogger</h3>
+        <p><code>communicate.unlogger(type, location, isLock);</code></p>
+        <p>
+            <b>type</b> is the type you want to return in the console. <br>
+            <b>location</b> is where you want to block or unblock.
+            Example:
+            <code>communicate.unlogger('log', 'output', true);</code> - This will lock all console logs of type log from
+            output. <br>
+            <code>communicate.unlogger('log', 'output', false);</code> - This will unlock all console logs of type log
+            from output. <br>
+            <code>communicate.unlogger('all', 'all', true);</code> - This will lock all loggers from Core.
+        </p>
+    </div>
+
+</div>
