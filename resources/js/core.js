@@ -1,6 +1,6 @@
 "use stric";
 import config from "./config.js";
-import communicate from './Core/communication.js';
+import communicate from './Core/communicati.js';
 
 
 const $ = document.querySelector.bind(document);
