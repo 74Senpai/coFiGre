@@ -1,8 +1,8 @@
 "use stric";
-import input from "https://raw.githubusercontent.com/74Senpai/coFiGre/master/resources/js/Core/input.js";
-import output from "https://raw.githubusercontent.com/74Senpai/coFiGre/master/resources/js/Core/output.js";
-import store from "https://raw.githubusercontent.com/74Senpai/coFiGre/master/resources/js/Core/store.js";
-import action from "https://raw.githubusercontent.com/74Senpai/coFiGre/master/resources/js/Core/action.js";
+import input from "./input.js";
+import output from "./output.js";
+import store from "./store.js"
+import action from "./action.js";
 
 
 const $ = document.querySelector.bind(document);

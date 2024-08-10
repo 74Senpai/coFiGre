@@ -1,5 +1,5 @@
 "use stric";
-import communicate from 'https://raw.githubusercontent.com/74Senpai/coFiGre/master/resources/js/Core/communicate.js';
+import communicate from './communicate.js';
 
 let data;
 
